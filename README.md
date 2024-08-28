@@ -1,16 +1,13 @@
-Here's a `README.md` file for your project, which provides a clear and concise overview of the project, setup instructions, and usage details.
-
-```markdown
 # Interactive Video Player with Skippable Ads using Flutter and Riverpod
 
 This project demonstrates how to build a Flutter video player with skippable ads using the Interactive Media Ads (IMA) SDK. The project uses Riverpod for state management, making it easy to control the ad display and video playback logic.
 
 ## Features
 
-- **Interactive Media Ads (IMA) SDK Integration**: Display skippable ads before the content video starts.
-- **Riverpod State Management**: Efficient and reactive state management for handling ad display and video playback.
-- **Skip Ad Functionality**: Users can skip the ad and immediately start watching the content video.
-- **Responsive UI**: Clean and responsive user interface with seamless transitions between ads and video content.
+-  Interactive Media Ads (IMA) SDK Integration: Display skippable ads before the content video starts.
+- Riverpod State Management: Efficient and reactive state management for handling ad display and video playback.
+- Skip Ad Functionality: Users can skip the ad and immediately start watching the content video.
+- Responsive UI: Clean and responsive user interface with seamless transitions between ads and video content.
 
 ## Project Structure
 
@@ -24,7 +21,7 @@ lib/
 │   └── ad_example_screen.dart
 └── widgets/
     └── video_player_widget.dart
-```
+
 
 - **`provider/`**: Contains state management logic for video, ads, and content visibility.
 - **`screens/`**: Contains the main screen where the video and ad interactions occur.
@@ -107,5 +104,3 @@ Contributions are welcome! Please follow these steps:
 - [Flutter](https://flutter.dev/)
 - [Riverpod](https://riverpod.dev/)
 - [Interactive Media Ads (IMA) SDK](https://developers.google.com/interactive-media-ads)
-
-``
