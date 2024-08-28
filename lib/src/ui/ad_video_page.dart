@@ -173,6 +173,7 @@ class AdExampleScreen extends ConsumerStatefulWidget {
 
 class _AdExampleScreenState extends ConsumerState<AdExampleScreen> {
   late AdDisplayContainer _adDisplayContainer;
+
   @override
   void initState() {
     super.initState();
@@ -182,13 +183,33 @@ class _AdExampleScreenState extends ConsumerState<AdExampleScreen> {
     _initializeAds();
   }
 
+  void _initializeAds() {
+    // Check if the ad has been shown before
+    final adShown = ref.read(adShownProvider.notifier).state;
+
+    if (!adShown) {
+      // If the ad has not been shown, show the ad
+      _adDisplayContainer = AdDisplayContainer(
+        onContainerAdded: (AdDisplayContainer container) {
+          ref
+              .read(adsManagerProvider.notifier)
+              .requestAds(container, AdExampleScreen._adTagUrl);
+        },
+      );
+    } else {
+      // If the ad has been shown, directly show the content
+      _resumeContent();
+    }
+  }
+
   void _pauseContent() {
-    ref.read(contentVisibilityProvider.notifier).state = false;
     ref.read(videoPlayerProvider.notifier).pauseContent();
   }
 
   void _resumeContent() {
-    ref.read(contentVisibilityProvider.notifier).state = true;
+    // Set the ad as shown
+    ref.read(adShownProvider.notifier).state = true;
+
     ref.read(videoPlayerProvider.notifier).resumeContent();
   }
 
@@ -200,12 +221,15 @@ class _AdExampleScreenState extends ConsumerState<AdExampleScreen> {
       body: videoController == null
           ? const Center(child: Text("Loading..."))
           : Stack(
+              fit: StackFit.expand,
               children: [
-                VideoPlayerWidget(controller: videoController),
-                if (ref.watch(contentVisibilityProvider) == false)
-                  _adDisplayContainer,
+                if (ref.watch(adShownProvider) &&
+                    videoController.value.isInitialized)
+                  VideoPlayerWidget(controller: videoController),
+                if (!ref.watch(adShownProvider)) _adDisplayContainer,
               ],
             ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       floatingActionButton: videoController?.value.isInitialized ?? false
           ? FloatingActionButton(
               onPressed: () {
@@ -220,16 +244,6 @@ class _AdExampleScreenState extends ConsumerState<AdExampleScreen> {
               ),
             )
           : null,
-    );
-  }
-
-  void _initializeAds() {
-    _adDisplayContainer = AdDisplayContainer(
-      onContainerAdded: (AdDisplayContainer container) {
-        ref
-            .read(adsManagerProvider.notifier)
-            .requestAds(container, AdExampleScreen._adTagUrl);
-      },
     );
   }
 }

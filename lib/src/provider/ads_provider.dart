@@ -30,6 +30,7 @@ class AdsManagerNotifier extends StateNotifier<AdsManager?> {
                 _ref.read(videoPlayerProvider.notifier).pauseContent();
                 break;
               case AdEventType.contentResumeRequested:
+                _ref.read(adShownProvider.notifier).state = true;
                 _ref.read(videoPlayerProvider.notifier).resumeContent();
                 break;
               case AdEventType.allAdsCompleted:
@@ -39,7 +40,8 @@ class AdsManagerNotifier extends StateNotifier<AdsManager?> {
               case AdEventType.clicked:
               case AdEventType.complete:
                 _ref.read(videoPlayerProvider.notifier).resumeContent();
-                _ref.read(contentVisibilityProvider.notifier).state = true;
+                _ref.read(adShownProvider.notifier).state = true;
+
                 break;
             }
           },
