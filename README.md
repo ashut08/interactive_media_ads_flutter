@@ -11,7 +11,7 @@ This project demonstrates how to build a Flutter video player with skippable ads
 
 ## Project Structure
 
-```plaintext
+
 lib/
 ├── provider/
 │   ├── ads_provider.dart
@@ -103,4 +103,4 @@ Contributions are welcome! Please follow these steps:
 
 - [Flutter](https://flutter.dev/)
 - [Riverpod](https://riverpod.dev/)
-- [Interactive Media Ads (IMA) SDK](https://developers.google.com/interactive-media-ads)
+- [Interactive Media Ads (IMA) SDK](https://pub.dev/packages/interactive_media_ads)
