@@ -41,7 +41,7 @@ Ensure you have the following tools installed:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/interactive-video-player.git
+   git clone https://github.com/ashut08/interactive-video-player.git
    ```
 
 2. Navigate to the project directory:
