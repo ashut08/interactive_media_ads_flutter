@@ -1,16 +1,111 @@
-# interactiveads
+Here's a `README.md` file for your project, which provides a clear and concise overview of the project, setup instructions, and usage details.
 
-A new Flutter project.
+```markdown
+# Interactive Video Player with Skippable Ads using Flutter and Riverpod
+
+This project demonstrates how to build a Flutter video player with skippable ads using the Interactive Media Ads (IMA) SDK. The project uses Riverpod for state management, making it easy to control the ad display and video playback logic.
+
+## Features
+
+- **Interactive Media Ads (IMA) SDK Integration**: Display skippable ads before the content video starts.
+- **Riverpod State Management**: Efficient and reactive state management for handling ad display and video playback.
+- **Skip Ad Functionality**: Users can skip the ad and immediately start watching the content video.
+- **Responsive UI**: Clean and responsive user interface with seamless transitions between ads and video content.
+
+## Project Structure
+
+```plaintext
+lib/
+├── provider/
+│   ├── ads_provider.dart
+│   ├── show_content_provider.dart
+│   └── video_provider.dart
+├── screens/
+│   └── ad_example_screen.dart
+└── widgets/
+    └── video_player_widget.dart
+```
+
+- **`provider/`**: Contains state management logic for video, ads, and content visibility.
+- **`screens/`**: Contains the main screen where the video and ad interactions occur.
+- **`widgets/`**: Contains reusable UI components like the video player widget.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Prerequisites
 
-A few resources to get you started if this is your first Flutter project:
+Ensure you have the following tools installed:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- [Flutter SDK](https://flutter.dev/docs/get-started/install)
+- [Dart SDK](https://dart.dev/get-dart)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/interactive-video-player.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd interactive-video-player
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   flutter pub get
+   ```
+
+### Running the App
+
+Run the app on your preferred device or emulator:
+
+```bash
+flutter run
+```
+
+## Usage
+
+- The app initializes by loading a skippable ad.
+- If the ad hasn't been shown before, it plays before the content video starts.
+- Users can skip the ad using the "Skip Ad" button, and the content video will start immediately.
+- The floating action button allows users to play/pause the video.
+
+## Code Overview
+
+### Providers
+
+- **`video_provider.dart`**: Manages the video player controller.
+- **`ads_provider.dart`**: Handles ad loading and interaction.
+- **`show_content_provider.dart`**: Tracks whether the ad has been shown before.
+
+### Screens
+
+- **`ad_example_screen.dart`**: The main screen that integrates the video player, ads, and user controls.
+
+### Widgets
+
+- **`video_player_widget.dart`**: A widget that displays the video player.
+
+## Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Commit your changes (`git commit -m 'Add a new feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Create a new Pull Request.
+
+
+
+## Acknowledgements
+
+- [Flutter](https://flutter.dev/)
+- [Riverpod](https://riverpod.dev/)
+- [Interactive Media Ads (IMA) SDK](https://developers.google.com/interactive-media-ads)
+
+``
