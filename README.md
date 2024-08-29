@@ -16,7 +16,7 @@ This project demonstrates how to build a Flutter video player with skippable ads
 
 ## Project Structure
 
-
+ ```bash
 lib/
 ├── provider/
 │   ├── ads_provider.dart
@@ -26,6 +26,7 @@ lib/
 │   └── ad_example_screen.dart
 └── widgets/
     └── video_player_widget.dart
+```
 
 
 - **`provider/`**: Contains state management logic for video, ads, and content visibility.
